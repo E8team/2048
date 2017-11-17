@@ -34,7 +34,7 @@ class Game {
         fetchDir.on('left', this.left.bind(this));
         fetchDir.on('right', this.right.bind(this));
         fetchDir.on('down', this.down.bind(this));
-        fetchDir.on('all', () => {
+        fetchDir.on('any', () => {
             setTimeout(() => {
                 this.randomTile();
             }, 100);

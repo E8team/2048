@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: process.env.NODE_ENV === 'production' ? 'app.min.js' : 'app.js'
+    filename: 'app.js'
   },
   module: {
     rules: [

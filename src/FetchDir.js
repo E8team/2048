@@ -25,9 +25,9 @@ class FetchDir {
         this.mouseLastPoint = null;
         let checkerboardDom = document.querySelector('#game-container');
         checkerboardDom.addEventListener('mousedown', this.onTouchStart.bind(this));
-        checkerboardDom.addEventListener('mouseup', this.onTouchEnd.bind(this));
+        checkerboardDom.addEventListener('mousemove', this.onTouchMove.bind(this));
         checkerboardDom.addEventListener('touchstart', this.onTouchStart.bind(this));
-        checkerboardDom.addEventListener('touchend', this.onTouchEnd.bind(this));
+        checkerboardDom.addEventListener('touchmove', this.onTouchMove.bind(this));
         document.addEventListener('keydown', (event) => {
             event.preventDefault();
             let mapped = map[event.which];
@@ -62,7 +62,7 @@ class FetchDir {
             y: e.pageY ? e.pageY : event.changedTouches[0].clientY,
         };
     }
-    onTouchEnd (e) {
+    onTouchMove (e) {
         if (!this.mouseLastPoint) {
             return;
         }

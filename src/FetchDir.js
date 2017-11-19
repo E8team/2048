@@ -68,9 +68,10 @@ class FetchDir {
         }
         let dx = (e.pageX ? e.pageX : event.changedTouches[0].clientX) - this.mouseLastPoint.x;
         let dy = (e.pageY ? e.pageY : event.changedTouches[0].clientY) - this.mouseLastPoint.y;
-        if(dx == 0 && dy == 0){
+        if(Math.abs(dx) <= 30 && Math.abs(dy) <= 30){
             return;
         }
+        
         if (Math.abs(dx) > Math.abs(dy)) {
             // 左右
             if(dx > 0){

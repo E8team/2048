@@ -58,18 +58,25 @@ let colors = [
       bgColor: '#EFC229'
     }
   ];
-let block = document.querySelector('.grid-cell');
-let size = block.offsetWidth;
-let step = parseInt(document.defaultView.getComputedStyle(block, null)['marginRight']);
 
-// 暂时
-if(step == 10){
-  // 手机
+
+let size;
+let step;
+
+if(window.innerWidth < 530){
+  // 小屏幕
   colors.forEach(item => {
     item.fontSize = item.fontSize / 2;
   })
   size = 57.5;
+  step = 10;
+}else{
+  // 大屏幕
+  size = 106;
+  step = 15;
 }
+
+
 class Tile{
   constructor (x, y, num) {
     this.x = x;

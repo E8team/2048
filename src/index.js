@@ -1,6 +1,6 @@
 import Game from './Game';
 import GameAudio from './GameAudio';
-import './assets/css/normalize.min.css';
+import 'normalize.css';
 import './assets/css/style.css';
 
 document.addEventListener('touchmove', function(e) {

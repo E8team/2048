@@ -1,11 +1,16 @@
 import Tile from './Tile';
 import FetchDir from './FetchDir';
+import GameAudio from './GameAudio';
 class Game {
     static getInstance () {
+        if (!Game._instance) {
+            Game._instance = new Game();
+        }
         return Game._instance;
     }
     constructor () {
         Game._instance = this;
+        GameAudio.getInstance().playBackground('bg');
         this.tiles = [
             new Array(4),
             new Array(4),
@@ -35,6 +40,7 @@ class Game {
         fetchDir.on('right', this.right.bind(this));
         fetchDir.on('down', this.down.bind(this));
         fetchDir.on('any', () => {
+            GameAudio.getInstance().playEffect('move');
             setTimeout(() => {
                 this.randomTile();
             }, 100);

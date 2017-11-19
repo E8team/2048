@@ -30,7 +30,16 @@ module.exports = {
                 loader: "css-loader"
             }
         ]
-    }]
+      },
+      {  
+        test: /\.(jpg|jpeg|png|mp3|ogg)$/,  
+        use: [  
+            {
+              loader: 'file-loader?publicPath=dist/'
+            }
+        ]
+      }
+    ]
   },
   performance: {
     hints: false

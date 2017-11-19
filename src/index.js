@@ -1,4 +1,5 @@
 import Game from './Game';
+import GameAudio from './GameAudio';
 import './assets/css/normalize.min.css';
 import './assets/css/style.css';
 
@@ -6,7 +7,11 @@ document.addEventListener('touchmove', function(e) {
     e.preventDefault();
 });
 try {
-	new Game();
+	const gameAudio = GameAudio.getInstance();
+	gameAudio.loadAudio('bg', 'BACKGROUND',require('./assets/audio/bg.mp3'));
+	gameAudio.loadAudio('move', 'EFFECT',require('./assets/audio/move.ogg'));
+
+	Game.getInstance();
 }catch(e){
-	alert(e);
+	console.error(e);
 }

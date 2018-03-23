@@ -33,6 +33,7 @@ class Game {
         this.bastScoreDom = document.querySelector('#bast-score');
         this.scoreDom.innerHTML = 0;
         this.bastScoreDom.innerHTML = this.bastScore;
+        this.dieMaskDom = document.querySelector('#die-mask');
 
         let fetchDir = new FetchDir();
         fetchDir.on('up', this.up.bind(this));
@@ -82,9 +83,46 @@ class Game {
             }
         }
     }
+    // 死亡判断
+    checkDie () {
+        const getNeighbor = (i, j) => {
+            let neighbors = [
+               [i - 1, j],
+               [i, j - 1],
+               [i, j + 1],
+               [i + 1, j],
+            ]
+            return neighbors.filter(item => 
+                item[0] >= 0 
+                && item[1] >= 0
+                && item[0] < 4
+                && item[1] < 4
+            );
+        }
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                const currnetNum = this.tiles[i][j].num;
+                for (let item of getNeighbor(i, j)) {
+                    if (this.tiles[item[0]][[item[1]]].num === currnetNum) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    showDieMask () {
+        this.dieMaskDom.style.opacity = 1;
+        this.dieMaskDom.onclick = () => {
+            window.location.reload();
+        }
+    }
     // 随机生成棋子
     randomTile () {
         if(this.count === 16){
+            if (this.checkDie()) {
+                this.showDieMask()
+            }
             return;
         }
         let num = Math.floor( Math.random() * 100  % (16 - this.count));

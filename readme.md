@@ -11,7 +11,7 @@ npm install
 ```
 ## 2. 允许
 ```shell
-双击 index.html  🤟🤟🤟
+open index.html  🤟🤟🤟
 ```
 
 # 截图

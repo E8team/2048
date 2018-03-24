@@ -1,7 +1,7 @@
 # 2048项目
 
 # 安装
-## 1. 克隆项目
+## 1. 克隆项目
 ```shell
 git clone https://github.com/E8team/2048.git
 ```

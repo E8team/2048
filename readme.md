@@ -9,7 +9,7 @@ git clone https://github.com/E8team/2048.git
 ```shell
 npm install
 ```
-## 2. 允许
+## 2. 运行
 ```shell
 open index.html  🤟🤟🤟
 ```

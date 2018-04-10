@@ -11,6 +11,7 @@ npm install
 ```
 ## 2. 运行
 ```shell
+npm run [dev | build]
 open index.html  🤟🤟🤟
 ```
 
